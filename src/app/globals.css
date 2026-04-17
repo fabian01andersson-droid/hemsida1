@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-white: #ffffff;
+  --bg-black: #000000;
+  --text-main: #1d1d1f;
+  --text-secondary: #86868b;
+  --accent-blue: #0066cc;
+  --accent-green: #38A169;
+  --border-light: rgba(0, 0, 0, 0.1);
+  --border-dark: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-white antialiased text-[#1d1d1f] overflow-x-hidden;
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.011em;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-black tracking-tighter;
+    font-family: var(--font-manrope), sans-serif;
+    color: var(--text-main);
+  }
+}
+
+@layer components {
+  /* Apple-style Glassmorphism */
+  .glass-nav {
+    @apply sticky top-0 z-50 w-full backdrop-blur-md border-b;
+    background: rgba(255, 255, 255, 0.7);
+    border-color: var(--border-light);
+  }
+
+  .glass-card-dark {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    @apply rounded-[2.5rem];
+  }
+
+  /* Spacing system */
+  .section-padding {
+    @apply py-24 md:py-48 px-6;
+  }
+
+  .container-apple {
+    @apply max-w-[1100px] mx-auto;
+  }
+}
+
+/* Smooth transitions for everything */
+* {
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
